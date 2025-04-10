@@ -1,0 +1,14 @@
+/*
+
+!.gitignore
+!.bash_profile
+!.bashrc
+
+!.config/
+.config/*
+!.config/foot/
+!.config/sway/
+!.config/wallpapers/
+!.config/waybar/
+!.config/wofi/
+
