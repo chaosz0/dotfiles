@@ -8,7 +8,7 @@
 .config/*
 !.config/foot/
 !.config/sway/
-!.config/wallpapers/
+#!.config/wallpapers/
 !.config/waybar/
 !.config/wofi/
 

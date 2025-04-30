@@ -23,10 +23,14 @@ set $menu --no-startup-id wofi --show drun
 # Startup applications
 exec "gammastep -O 5000 -b 0.8:0.7 -g 0.8"
 exec "fcitx5 -d"
+exec "nm-applet"
 ## wl-clipboard + cliphist
 exec "wl-paste --type text --watch cliphist store"
 exec "wl-paste --type image --watch cliphist store"
 bindsym $mod+v exec cliphist list | wofi -dmenu | cliphist decode | wl-copy 
+
+xwayland enable
+exec "export XWAYLAND_SCALE=1.5"
 
 
 
@@ -34,7 +38,7 @@ bindsym $mod+v exec cliphist list | wofi -dmenu | cliphist decode | wl-copy
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/.config/wallpapers/pixels-l.jpg fill
+output * bg ~/.config/wallpapers/pixels-d.jpg fill
 #
 # Example configuration:
 #
