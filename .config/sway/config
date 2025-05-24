@@ -27,7 +27,19 @@ exec "nm-applet"
 ## wl-clipboard + cliphist
 exec "wl-paste --type text --watch cliphist store"
 exec "wl-paste --type image --watch cliphist store"
-bindsym $mod+v exec cliphist list | wofi -dmenu | cliphist decode | wl-copy 
+bindsym $mod+v exec "cliphist list | wofi -dmenu | cliphist decode | wl-copy"
+#bindsym $mod+period exec "emote --clipboarder wl-copy --typer wtype"
+bindsym $mod+period exec "emote"
+
+# wayland enviroment
+exec "export GDK_BACKEND=wayland,x11"
+exec "export CLUTTER_BACKEND=wayland"
+exec "export QT_QPA_PLATFORM=wayland"
+exec "export QT_QPA_PLATFORMTHEME=qt5ct # qt6ct"
+exec "export SDL_VIDEODRIVER=wayland"
+exec "export MOZ_ENABLE_WAYLAND=1"
+exec "export XDG_CURRENT_DESKTOP=sway"
+exec "export XDG_SESSION_TYPE=wayland"
 
 xwayland enable
 exec "export XWAYLAND_SCALE=1.5"

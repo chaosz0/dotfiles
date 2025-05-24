@@ -3,6 +3,7 @@
 !.gitignore
 !.bash_profile
 !.bashrc
+!.nanorc
 
 !.config/
 .config/*
