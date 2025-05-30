@@ -1,0 +1,18 @@
+daemonize
+ignore-empty-password
+show-failed-attempts
+
+image="$HOME/Pictures/wallpapers/pacman-ghosts.png"
+scaling=fill
+effect-blur=8x5
+fade-in=0.2
+
+indicator-caps-lock
+indicator-raius=180
+indicator-thickness=10
+font="Noto Sans"
+font-size=32
+
+timestr=%H:%M
+datestr=%A, %d %B %Y
+
