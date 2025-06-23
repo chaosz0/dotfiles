@@ -14,3 +14,6 @@
 !.config/waybar/
 !.config/wofi/
 
+!.local/
+.local/*
+!.local/bin/
