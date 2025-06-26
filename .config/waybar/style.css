@@ -1,7 +1,8 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
+    font-family: Terminus;
+    font-size: 14px;
 }
 
 /* gruvbox
@@ -11,7 +12,7 @@
 
 window#waybar {
     /*background-color: rgba(43, 48, 59, 0.5); */
-    background-color: #1d2021;
+    background-color: #3c3836;
     color: #c0caf5;
     transition-property: background-color;
     transition-duration: .5s;  
@@ -62,18 +63,11 @@ button:hover {
     background-color: #a37800; 
 }
 
-/*
-#workspaces {
-    background-color: #303536;
-    margin: 6px 0px 6px 6px;
-    border: 2px solid #434a4c;
-}
-*/
-
 #workspaces button {
+    font-weight:bold;
     padding: 0 5px;
     background-color: transparent;
-    color: #c7ab7a;
+    color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -119,6 +113,9 @@ button:hover {
 #window,
 #workspaces {
     margin: 0 4px;
+    /*background-color: #303536;
+    margin: 6px 0px 6px 6px;
+    border: 2px solid #434a4c;*/
 }
 
 /* If workspaces is the leftmost module, omit left margin 
@@ -132,16 +129,13 @@ button:hover {
 } */
 
 #clock {
-    /*background-color: #303536; */
     background-color: #64727D;
     border: 2px solid #434a4c;
-    color: #d4be98;
 }
 
 #battery {
-    background-color: #a9b665;
+    background-color: #2980b9;
     border: 2px solid #434a4c;
-    color: #6c782e;
 }
 
 #battery.charging, #battery.plugged {
@@ -230,7 +224,6 @@ label:focus {
 #pulseaudio {
     background-color: #f1c40f;
     border: 2px solid #434a4c;
-    color: #000000;
 }
 
 #pulseaudio.muted {
@@ -271,7 +264,6 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
     border: 2px solid #434a4c;
 }
 
@@ -363,7 +355,7 @@ label:focus {
     background-color: #0069d4;
 }
 
-#custom-arch {
+#custom-power {
     margin-left: 4px;
     padding: 0 4;
     font-size: 16px;
