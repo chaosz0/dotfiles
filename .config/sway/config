@@ -108,7 +108,8 @@ input type:touchpad {
 
     # Kill focused window
     #bindsym $mod+Shift+q kill
-    bindsym $mod+q kill
+    #bindsym $mod+q exec swaynag -t warning -m "Exit?" -b "Close" "swaymsg kill" -b "Cancel" ""
+    bindsym $mod+q exec swaymsg kill
 
     # Start your launcher
     #bindsym $mod+d exec $menu

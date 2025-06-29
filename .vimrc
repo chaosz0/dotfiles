@@ -3,6 +3,7 @@ set number
 "set relativenumber
 "set cursorline
 "set cursorcolumn
+set showcmd
 
 " indent
 set autoindent
