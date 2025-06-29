@@ -1,0 +1,67 @@
+/* https://cloudninja.pw/docs/wofi.html */
+
+window {
+    margin: 5px;
+    border: 2px solid #458588;
+    background-color: #282828; /*red*/
+}
+
+#input {
+    margin: 5px;
+    border: 2px solid #3c3836;
+    background-color: #3c3836; /*blue*/
+    color: #ebdbb2;
+}
+
+#inner-box {
+    margin: 5px;
+    border: 2px solid #282828;
+    background-color: #282828; /*yellow*/
+}
+
+#outer-box {
+    margin: 5px;
+    border: 2px solid #282828;
+    background-color: #282828; /*green*/
+}
+
+#scroll {
+    margin: 5px;
+    /*border: 2px solid orange;
+    background-color: orange; /*orange*/
+}
+
+#entry {
+    padding: 4px 8px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+#entry:selected {
+    background-color: #458588; /*rgba(0,0,0,0)*/
+    border-radius: 2px;
+} 
+
+#entry image {
+    margin-right: 8px;
+}
+
+#text {
+    margin: 5px;
+    border: 2px solid #ebdbb2;
+    background-color: #ebdbb2; /*cyan*/
+} 
+
+#text:selected {
+    color: #fbf1c7;
+    font-weight: bold;
+    /*background-color: red; /*red*/
+} 
+
+#category {
+    background-color: #1d2021;
+    color: #d79921;
+    padding: 6px 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #665c54;
+}

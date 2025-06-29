@@ -1,0 +1,77 @@
+/* Retro Green */
+
+window {
+    background-color: rgba(5,15,5,0.92);
+    border: 2px solid #0f0;
+    border-radius: 0px;
+    font-family: "Terminus", "Terminus (TTF)", "Terminess Nerd Font", monospace;
+}
+
+#input {
+    background-color: #020;
+    color: #0f0;
+    border: 1px solid #0f0;
+    border-radius: 0px;
+    padding: 4px 10px;
+    font-size: 16px;
+    box-shadow: inset 0 0 8px rgba(0,255,0,0.4);
+}
+
+#inner-box {
+    background-color: rgba(0,10,0,0.7);
+}
+
+#outer-box {
+    margin: 10px;
+    background-color: rgba(0,15,0,0.85);
+    box-shadow: 0 0 15px rgba(0,255,0,0.5);
+    padding: 5px;
+}
+
+#entry {
+    padding: 4px 8px;
+    background-color: transparent;
+    border-bottom: 1px dashed #0a0;
+    transition: all 0.2s ease;
+}
+
+#entry:selected {
+    background-color: #300;
+    border: 1px solid #f00;
+    box-shadow: inset 0 0 15px #f00, 0 0 10px #f00;
+    transform: scale(1.01);
+    border-bottom: none;
+} 
+
+#text {
+    color: #0f0;
+    margin: 2px;
+    font-size: 16px;
+    text-shadow: 0 0 3px rgba(0,255,0,0.4);
+} 
+
+#text:selected {
+    color: #ff8;
+    font-weight: bold;
+    text-shadow: 0 0 8px #f00;
+} 
+
+#img {
+    margin-right: 8px;
+}
+
+#scroll {
+    margin: 5px 0;
+}
+
+#prompt {
+    color: #0f0;
+    font-style: italic;
+    text-shadow: 0 0 5px #0f0;
+}
+
+#element {
+    color: #8f8;
+    padding: 2px 0;
+}
+
