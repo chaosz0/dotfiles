@@ -13,6 +13,3 @@ indicator-thickness=10
 font="Noto Sans"
 font-size=32
 
-timestr=%H:%M
-datestr=%A, %d %B %Y
-

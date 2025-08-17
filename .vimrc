@@ -4,6 +4,7 @@ set number
 "set cursorline
 "set cursorcolumn
 set showcmd
+set hlsearch
 
 " indent
 set autoindent
