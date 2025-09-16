@@ -15,6 +15,7 @@
 !.config/wofi/
 !.config/nvim/
 !.config/dunst/
+!.config/swayimg/
 
 !.local/
 .local/*
