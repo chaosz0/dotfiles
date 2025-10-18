@@ -19,9 +19,11 @@
 # Mode at startup (viewer/slideshow/gallery)
 mode = viewer
 # Window size (fullscreen/image, or absolute size)
-size = 1280,720
+#size = 1280,720
+size = parent
 # Sway/Hyprland only: Window position (auto or absolute coordinates, e.g. 10,20)
-position = auto
+#position = auto
+position = parent
 # Sway/Hyprland only: create floating window above the currently focused one
 overlay = yes
 # Use window decoration (yes/no)
@@ -38,9 +40,11 @@ app_id = swayimg
 ################################################################################
 [viewer]
 # Window background color (auto/extend/mirror/RGBA)
-window = #00000000
+#window = #00000000
+window = #111111
 # Background for transparent images (grid/RGBA)
-transparency = grid
+#transparency = grid
+transparency = #111111
 # Default image scale (optimal/width/height/fit/fill/real/keep)
 scale = optimal
 # Initial image position on the window (center/top/bottom/free/...)
@@ -88,15 +92,20 @@ fill = yes
 # Anti-aliasing mode for thumbnails (none/box/bilinear/bicubic/mks13)
 antialiasing = mks13
 # Background color of the window (RGBA)
-window = #00000000
+#window = #00000000
+window = #111111
 # Background color of non-selected tiles (RGBA)
-background = #202020ff
+#background = #202020ff
+background = #111111
 # Background color of the selected tile (RGBA)
-select = #404040ff
+#select = #404040ff
+select = #005577
 # Border color of the selected tile (RGBA)
-border = #000000ff
+#border = #000000ff
+border = #005577
 # Shadow color of the selected tile (RGBA)
-shadow = #000000ff
+#shadow = #000000ff
+shadow = #000000
 
 ################################################################################
 # Image list configuration
@@ -122,7 +131,8 @@ name = monospace
 # Font size (pt)
 size = 14
 # Font color (RGBA)
-color = #ccccccff
+#color = #ccccccff
+color = #FFFFFF
 # Shadow color (RGBA)
 shadow = #000000d0
 # Background color (RGBA)
@@ -167,8 +177,12 @@ bottom_right = name,status
 F1 = help
 Home = first_file
 End = last_file
+
 Prior = prev_file
 Next = next_file
+h = prev_file
+l = next_file
+
 Space = next_file
 Shift+r = rand_file
 Shift+d = prev_dir
@@ -220,6 +234,8 @@ MouseLeft = drag
 MouseSide = prev_file
 MouseExtra = next_file
 
+Shift+i = exec convert "%" -channel RGB -negate - | swayimg -
+
 ################################################################################
 # Slideshow mode key binding configuration: key = action [parameters]
 ################################################################################
@@ -246,10 +262,16 @@ q = exit
 F1 = help
 Home = first_file
 End = last_file
+
 Left = step_left
 Right = step_right
 Up = step_up
 Down = step_down
+h = step_left
+l = step_right
+k = step_up
+j = step_down
+
 Prior = page_up
 Next = page_down
 c = skip_file
