@@ -20,3 +20,5 @@
 !.local/
 .local/*
 !.local/bin/
+.local/bin/*
+!.local/bin/foots

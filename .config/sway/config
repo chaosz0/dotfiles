@@ -22,7 +22,8 @@ set $menu --no-startup-id wofi --show drun
 
 # Startup applications
 exec_always "$HOME"/.local/bin/foots
-exec "gammastep -O 5000 -b 0.8:0.7 -g 0.8"
+#exec "gammastep -O 5000 -b 0.8:0.7 -g 0.8"
+exec "gammastep -O 5500 -b 0.8:0.7 -g 0.8"
 exec "fcitx5 -d"
 exec "nm-applet"
 ## wl-clipboard + cliphist
