@@ -16,6 +16,7 @@
 !.config/nvim/
 !.config/dunst/
 !.config/swayimg/
+!.config/yazi/
 
 !.local/
 .local/*
