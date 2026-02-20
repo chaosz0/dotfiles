@@ -261,6 +261,7 @@ input type:touchpad {
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Shift+Print exec grim
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
     # swaylock
     bindsym $mod+CONTROL+l exec "swaylock"
