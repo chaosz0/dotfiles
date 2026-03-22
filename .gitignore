@@ -17,6 +17,7 @@
 !.config/dunst/
 !.config/swayimg/
 !.config/yazi/
+!.config/zathura/
 
 !.local/
 .local/*

@@ -27,12 +27,16 @@ imv = [
 zathura = [
     { run = 'zathura "$@"', desc = "Read" },
 ]
+email = [
+    { run = 'thunderbird "$@"', desc = "View" },
+]
 
 
 [open]
 rules = [
     { url = "*.pdf", use = "zathura"},
     { url = "*.html", use = "firefox"},
+    { url = "*.eml", use = "email"},
 
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
