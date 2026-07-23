@@ -14,3 +14,5 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 filetype indent on
+
+autocmd BufNewFile,BufRead *.sage set filetype=python

@@ -21,6 +21,9 @@ play = [
 firefox = [
     { run = 'firefox -private-window "$@"', desc = "View" },
 ]
+brave = [
+    { run = 'brave --incognito "$@"', desc = "View" },
+]
 imv = [
     { run = 'imv "$@"', desc = "View" },
 ]
@@ -36,6 +39,7 @@ email = [
 rules = [
     { url = "*.pdf", use = "zathura"},
     { url = "*.html", use = "firefox"},
+    { url = "*.mhtml", use = "brave"},
     { url = "*.eml", use = "email"},
 
 	# Folder
@@ -54,7 +58,7 @@ rules = [
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
-	{ name = "*", use = [ "open", "reveal" ] },
+	#{ name = "*", use = [ "open", "reveal" ] },
 ]
 
 
