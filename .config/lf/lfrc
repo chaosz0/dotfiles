@@ -1,0 +1,47 @@
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+set watch true
+set icons true
+
+map <enter> shell
+
+map a :push %mkdir<space>
+
+map gc cd ~/.config
+
+cmd open &{{
+    case "$f" in
+        *.html)
+            firefox -private-window "$f";;
+        *.mhtml)
+            brave --incognito "$f";;
+        *.eml)
+            thunderbird "$f";;
+
+        *)
+            mime=$(file --mime-type -b "$f")
+            case "$mime" in
+                application/pdf)
+                    zathura "$f";;
+                image/*)
+                    imv "$f";;
+                video/*)
+                    mpv --force-window "$f";;
+                *)
+                    #xdg-open "$f"
+                    ;;
+            esac
+            ;;
+    esac
+}}
+
+cmd delete %{{
+    printf "trash selected files? [y/N] "
+    read ans
+    [ "$ans" = "y" ] && trash-put $fx
+}}
+map <delete> delete
+
+set previewer ~/.config/lf/preview.sh
+

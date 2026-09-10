@@ -12,6 +12,8 @@ PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\W\[\e[00m\]\$ '
 
 set -o vi
 
+export EDITOR=nvim
+
 PATH="$HOME/.cargo/bin:$PATH"
 
 

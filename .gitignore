@@ -18,6 +18,7 @@
 !.config/swayimg/
 !.config/yazi/
 !.config/zathura/
+!.config/lf/
 
 !.local/
 .local/*
