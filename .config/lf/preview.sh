@@ -68,7 +68,14 @@ case "$MIMETYPE" in
         ;;
 
     image/*)
+        #SIZE=$(stat -c %s -- "$FILE_PATH" 2>/dev/null)
+        SIZE=$(stat -c %s -- "$FILE_PATH")
+        if [ -n "$SIZE" ] && [ "$SIZE" -gt 10485760 ]; then
+            printf "File too large to preview (>10MB)\n"
+            exit 0
+        fi
         chafa -f sixel -s "$2x$3" --animate off --polite on -t 1 --bg black "$1"
+        exit $?
         ;;
 
     application/pdf)

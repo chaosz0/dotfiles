@@ -4,11 +4,15 @@ set ifs "\n"
 set watch true
 set icons true
 
+#set info size
+#map <tab> calcdirsize
+
 map <enter> shell
 
 map a :push %mkdir<space>
 
 map gc cd ~/.config
+map gm cd /mnt
 
 cmd open &{{
     case "$f" in

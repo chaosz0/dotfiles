@@ -56,6 +56,7 @@ fi             # FILE
 # https://codeberg.org/unixchad/dotfiles/src/branch/master/.config/lf/icons
 # @depends ttf-nerd-fonts-symbols
 
+/etc        
 /home       󰋜
 /mnt        󰋊
 /srv        
@@ -67,6 +68,11 @@ fi             # FILE
 ~/.config   󱂀
 ~/.cache    󰪻
 ~/.local    󱉮
+~/Documents 󱧶
+~/Downloads 󰉍
+~/Music     󱍙
+~/Pictures  󰉏
+~/Videos    󱜗
 
 ~/.gnupg    󰢬
 ~/.ssh      󰢬
