@@ -27,8 +27,8 @@ exec "gammastep -O 6000 -b 0.85:0.8 -g 0.95"
 exec "fcitx5 -d"
 exec "nm-applet"
 ## wl-clipboard + cliphist
-exec "wl-paste --type text --watch cliphist store"
-exec "wl-paste --type image --watch cliphist store"
+exec "wl-paste --type text --watch cliphist -max-items 100 store"
+exec "wl-paste --type image --watch cliphist -max-items 100 store"
 bindsym $mod+v exec "cliphist list | wofi -dmenu | cliphist decode | wl-copy"
 #bindsym $mod+period exec "emote --clipboarder wl-copy --typer wtype"
 
@@ -57,8 +57,11 @@ exec "export CLIPHIST_MAX_ITEMS=100"
 #output * bg $HOME/Pictures/wallpapers/artvee/540790ldsdl.jpg fill
 #output * bg $HOME/Pictures/wallpapers/artvee/540772ldsdl.jpg fill
 #output * bg $HOME/Pictures/wallpapers/artvee/530234ldsdl.jpg fill
-#output * bg $HOME/Pictures/wallpapers/sve.png fill
-output * bg $HOME/Pictures/wallpapers/ML4W/car_on_mars.jpg fill
+#output * bg $HOME/Pictures/wallpapers/ML4W/car_on_mars.jpg fill
+output * bg $HOME/Pictures/wallpapers/animals/jan-kohl-7J4ps_IQJLk-unsplash.jpg fill
+#output * bg $HOME/Pictures/wallpapers/animals/6f394a807df54b458811946e8feea275.jpg fill
+#output * bg $HOME/Pictures/wallpapers/animals/95988a662eaf4904af55611ed87f20ca.jpg fill
+#output * bg $HOME/Pictures/wallpapers/animals/DSC_7999.jpg fill
 #
 # Example configuration:
 #
@@ -133,7 +136,7 @@ input type:touchpad {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -267,6 +270,10 @@ input type:touchpad {
     bindsym $mod+CONTROL+l exec "swaylock"
 
 
+    bindsym $mod+CONTROL+1 output eDP-1 mode 2880x1800@48.001Hz
+    bindsym $mod+CONTROL+2 output eDP-1 mode 2880x1800@120.001Hz
+
+
 #
 # Status Bar:
 #
@@ -299,3 +306,6 @@ gaps outer 4
 
 
 include /etc/sway/config.d/*
+
+
+workspace 10 output HDMI-A-1

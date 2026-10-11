@@ -2,7 +2,10 @@ daemonize
 ignore-empty-password
 show-failed-attempts
 
-image="$HOME/Pictures/wallpapers/pacman-ghosts.png"
+#image="$HOME/Pictures/wallpapers/pacman-ghosts.png"
+image="$HOME/Pictures/wallpapers/wp11058332.png"
+#image="$HOME/Pictures/wallpapers/animals/jan-kohl-7J4ps_IQJLk-unsplash.jpg"
+#image="$HOME/Pictures/disco-skyline-wallpaper-4k.png"
 scaling=fill
 effect-blur=8x5
 fade-in=0.2
