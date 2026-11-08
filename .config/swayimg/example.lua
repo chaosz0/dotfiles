@@ -15,7 +15,6 @@ swayimg.antialiasing = true                -- anti-aliasing
 swayimg.decoration = true                  -- window title/buttons/borders
 swayimg.overlay = false                    -- window overlay mode
 swayimg.exif_orientation = true            -- image orientation by EXIF
-swayimg.dnd_button = "MouseRight"          -- drag-and-drop mouse button
 
 -- Format specific configuration
 swayimg.format_conf = {
@@ -38,6 +37,16 @@ swayimg.format_conf = {
     label = 0x0affffff  -- label color in gallery mode
   },
 }
+
+-- drag-and-drop config
+swayimg.dnd_button = "MouseRight"
+swayimg.on_dnd(function(files)
+  swayimg.imagelist.clear()
+  swayimg.imagelist.add(files)
+  if swayimg.mode == 'viewer' then
+    swayimg.viewer.open_path(files[1])
+  end
+end)
 
 --------------------------------------------------------------------------------
 -- Image list configuration
@@ -68,8 +77,10 @@ swayimg.text.status_timeout = 3            -- status message hide timeout
 swayimg.viewer.default_scale = "optimal"   -- default image scale
 swayimg.viewer.default_position = "center" -- default image position
 swayimg.viewer.drag_button = "MouseLeft"   -- mouse button to drag image
-swayimg.viewer.autocenter = true           -- enable automatic centering
+swayimg.viewer.autopos = "center"          -- automatic image positioning
 swayimg.viewer.loop = true                 -- enable image list loop mode
+swayimg.viewer.focus_radius = 0            -- radius of focused area
+swayimg.viewer.focus_factor = 0.5          -- dimming factor for unfocused area
 swayimg.viewer.preload = 1                 -- number of images to preload
 swayimg.viewer.history = 1                 -- number of images in history cache
 swayimg.viewer.mark_color = 0xff808080     -- mark icon color
@@ -203,34 +214,21 @@ swayimg.viewer.on_key("Shift+prior", function()
   end
 end)
 
--- move image across the window (mouse/touchpad)
-swayimg.viewer.on_mouse("ScrollUp", function()
-  local pos = swayimg.viewer.get_position()
-  swayimg.viewer.set_abs_position(pos.x, pos.y - 10)
-end)
-swayimg.viewer.on_mouse("ScrollDown", function()
-  local pos = swayimg.viewer.get_position()
-  swayimg.viewer.set_abs_position(pos.x, pos.y + 10)
-end)
-swayimg.viewer.on_mouse("ScrollLeft", function()
-  local pos = swayimg.viewer.get_position()
-  swayimg.viewer.set_abs_position(pos.x - 10, pos.y)
-end)
-swayimg.viewer.on_mouse("ScrollRight", function()
-  local pos = swayimg.viewer.get_position()
-  swayimg.viewer.set_abs_position(pos.x + 10, pos.y)
-end)
-
--- zoom in/out (mouse/touchpad)
-swayimg.viewer.on_mouse("Ctrl+ScrollUp", function()
-  local mouse = swayimg.get_mouse_pos()
-  local scale = swayimg.viewer.scale
-  swayimg.viewer.set_abs_scale(scale + scale / 10, mouse.x, mouse.y)
-end)
-swayimg.viewer.on_mouse("Ctrl+ScrollDown", function()
-  local mouse = swayimg.get_mouse_pos()
-  local scale = swayimg.viewer.scale
-  swayimg.viewer.set_abs_scale(scale - scale / 10, mouse.x, mouse.y)
+-- scroll handling
+swayimg.viewer.on_scroll(function(kmods, horizontal, vertical)
+  if kmods == "Ctrl" then
+    -- zoom in/out
+    if vertical then
+      local mouse = swayimg.get_mouse_pos()
+      local scale = swayimg.viewer.scale
+      swayimg.viewer.set_abs_scale(scale - scale * vertical / 10.0, mouse.x, mouse.y)
+    end
+  else
+    -- move image across the window
+    local pos = swayimg.viewer.get_position()
+    swayimg.viewer.set_abs_position(pos.x + math.floor(horizontal * 50),
+                                    pos.y + math.floor(vertical * 50))
+  end
 end)
 
 --------------------------------------------------------------------------------
@@ -350,24 +348,21 @@ swayimg.gallery.on_key("prior", function()
   swayimg.gallery.select("pgup")
 end)
 
--- select another thumbnail (mouse/touchpad)
-swayimg.gallery.on_mouse("ScrollUp", function()
-  swayimg.gallery.select("up")
-end)
-swayimg.gallery.on_mouse("ScrollDown", function()
-  swayimg.gallery.select("down")
-end)
-swayimg.gallery.on_mouse("ScrollLeft", function()
-  swayimg.gallery.select("left")
-end)
-swayimg.gallery.on_mouse("ScrollRight", function()
-  swayimg.gallery.select("right")
-end)
-
--- thumbnail zoom in/out (mouse/touchpad)
-swayimg.gallery.on_mouse("Ctrl+ScrollUp", function()
-  swayimg.gallery.thumb_size = swayimg.gallery.thumb_size + 10
-end)
-swayimg.gallery.on_mouse("Ctrl+ScrollDown", function()
-  swayimg.gallery.thumb_size = swayimg.gallery.thumb_size - 10
+-- scroll handling
+swayimg.gallery.on_scroll(function(kmods, horizontal, vertical)
+  if kmods == "Ctrl" then
+    -- zoom in/out
+    if vertical then
+      swayimg.gallery.thumb_size = math.max(
+        swayimg.gallery.thumb_size + math.floor(-vertical / 2), 0)
+    end
+  else
+    -- select nearest thumbnail
+    if horizontal then
+      swayimg.gallery.select(horizontal > 0 and "left" or "right")
+    end
+    if vertical then
+      swayimg.gallery.select(vertical > 0 and "up" or "down")
+    end
+  end
 end)
