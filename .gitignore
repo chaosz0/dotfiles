@@ -25,3 +25,4 @@
 !.local/bin/
 .local/bin/*
 !.local/bin/foots
+!.local/bin/speak-selection

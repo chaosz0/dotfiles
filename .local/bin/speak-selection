@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# piper-tts
+# uv tool install piper-tts
+# https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_GB
+
+MODEL="$HOME/dict/en_GB-alba-medium.onnx"
+
+TEXT=$(timeout 3 wl-paste --primary)
+RC=$?
+
+if [ $RC -eq 124 ]; then
+  exit 0
+elif [ $RC -ne 0 ]; then
+  #echo "wl-paste failed: rc=$RC" >> /tmp/speak-debug.log
+  echo "wl-paste failed"
+  exit 1
+fi
+
+[ -z "$TEXT" ] && exit 0
+
+
+pkill -x paplay 2>/dev/null
+printf '%s' "$TEXT" | $HOME/.local/bin/piper --model "$MODEL" --output-raw 2>/dev/null | pw-play --raw --rate=22050 --channels=1 --format=s16 -
+#wl-paste --primary | $HOME/.local/bin/piper --model "$MODEL" --output-raw 2>/dev/null | pw-play --raw --rate=22050 --channels=1 --format=s16 -
+
+
