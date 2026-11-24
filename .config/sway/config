@@ -30,7 +30,6 @@ exec "nm-applet"
 exec "wl-paste --type text --watch cliphist -max-items 100 store"
 exec "wl-paste --type image --watch cliphist -max-items 100 store"
 bindsym $mod+v exec "cliphist list | wofi -dmenu | cliphist decode | wl-copy"
-#bindsym $mod+period exec "emote --clipboarder wl-copy --typer wtype"
 
 # tts
 #bindsym $mod+y exec wl-paste --primary | espeak-ng -ven+f4

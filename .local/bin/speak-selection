@@ -20,7 +20,7 @@ fi
 [ -z "$TEXT" ] && exit 0
 
 
-pkill -x paplay 2>/dev/null
+pkill -x pw-play 2>/dev/null
 printf '%s' "$TEXT" | $HOME/.local/bin/piper --model "$MODEL" --output-raw 2>/dev/null | pw-play --raw --rate=22050 --channels=1 --format=s16 -
 #wl-paste --primary | $HOME/.local/bin/piper --model "$MODEL" --output-raw 2>/dev/null | pw-play --raw --rate=22050 --channels=1 --format=s16 -
 

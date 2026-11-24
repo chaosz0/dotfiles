@@ -21,5 +21,5 @@ PATH="$HOME/.cargo/bin:$PATH"
 #https://wiki.archlinux.org/title/Proxy_server
 export http_proxy="http://127.0.0.1:7897"
 export https_proxy=$http_proxy
-export all_proxy=$http_proxy
+export all_proxy="socks5://127.0.0.1:7897"
 export no_proxy="localhost,127.0.0.1,::1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,*.local"
